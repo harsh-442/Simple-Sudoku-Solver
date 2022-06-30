@@ -1,10 +1,3 @@
-# sudoku solver using back tracking
-# returns whether a solution exists or not
-# returns the solution if it exists
-#input is a list of lists, where each inner list is a row of our sudoku puzzle
-#the find_next_empty function returns the next row,column on the puzzle that is not filled yet
-#find_next_empty returns (None,None) if there is none
-
 def find_next_empty(puzzle):
     for r in range(9):
         for c in range(9):
@@ -13,12 +6,12 @@ def find_next_empty(puzzle):
     return None,None
 
 def is_valid(puzzle,n,r,c):
-    if n in puzzle[r]:          #rowwise
+    if n in puzzle[r]:          #row-wise
         return False
     cols_val=[]
     for i in range(9):
         cols_val.append(puzzle[i][c])
-    if n in cols_val:           #columnwise
+    if n in cols_val:           #column-wise
         return False
     row_start= (r//3)*3
     col_start=(c//3)*3
